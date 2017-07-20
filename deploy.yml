@@ -1,0 +1,22 @@
+---
+
+- hosts: dev
+  become: yes
+  remote_user: ec2-user
+  tasks:
+    - name: Install LAMP
+      yum: 
+        name: "{{ item }}" 
+        state: present
+      with_items:
+        - php-mysql
+        - httpd 
+        - mysql 
+        - mysql-server 
+        - php 
+        - php-common 
+        - php-mysql 
+        - php-gd 
+        - php-xml 
+        - php-mbstring 
+        - php-mcrypt
